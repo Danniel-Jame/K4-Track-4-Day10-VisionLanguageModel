@@ -23,7 +23,7 @@
 
 Theo hướng dẫn của bài lab, tổng model Qwen3-VL-4B khoảng **4,44 tỷ tham số**: phần LLM và embedding khoảng **4,0 tỷ**, ViT khoảng **415 triệu**, còn projector gồm `visual.merger` khoảng **27 triệu** và `visual.deepstack_merger_list` khoảng **82 triệu**. Đây là con số ước lượng trong tài liệu, chưa phải số đếm trực tiếp từ model của lần chạy này.
 
-E1 chỉ dùng LoRA ở các lớp attention và MLP của LLM; ViT và projector được đóng băng. E2 giống E1 nhưng mở projector để huấn luyện đầy đủ, tăng khoảng 109 triệu tham số được cập nhật. E3 giữ E2 và bổ sung LoRA ở các lớp attention/MLP của ViT. Tôi mới chạy E0 nên chưa đo được số tham số trainable thực tế của E1–E3.
+E1 chỉ dùng LoRA ở các lớp attention và MLP của LLM; ViT và projector được đóng băng. E2 giống E1 nhưng mở projector để huấn luyện đầy đủ, tăng khoảng 109 triệu tham số được cập nhật. E3 giữ E2 và bổ sung LoRA ở các lớp attention/MLP của ViT. Em mới chạy E0 nên chưa đo được số tham số trainable thực tế của E1–E3.
 
 ### Câu 2 — E0: `parse_valid_rate` bằng bao nhiêu, và hai lỗi phổ biến nhất của model gốc là gì? Kèm output thô.
 
