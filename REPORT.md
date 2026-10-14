@@ -9,7 +9,7 @@
 
 | Mã | Setup | Tham số huấn luyện | VRAM đỉnh (GB) | Phút | F1 | CI95 | FP/ảnh | F1 pothole | F1 crack | F1 manhole |
 |---|---|---:|---:|---:|---:|---|---:|---:|---:|---:|
-| E0 | zero-shot | 0 | 3.1 | 4.2 | 0.124 | [0.098, 0.152] | 1.85 | 0.082 | 0.151 | 0.118 |
+| E0 | zero-shot | 0 | 9.8 | 4.2 | 0.124 | [0.098, 0.152] | 1.85 | 0.082 | 0.151 | 0.118 |
 | E1 | LoRA LLM | 20.19M | 11.8 | 23.5 | 0.342 | [0.308, 0.378] | 0.68 | 0.245 | 0.412 | 0.328 |
 | E2 | E1 + projector | Chưa chạy | — | — | — | — | — | — | — | — |
 | E3 | E2 + LoRA ViT | Chưa chạy | — | — | — | — | — | — | — | — |
@@ -23,7 +23,7 @@
 
 Theo hướng dẫn của bài lab, tổng model Qwen3-VL-4B khoảng **4,44 tỷ tham số**: phần LLM và embedding khoảng **4,0 tỷ**, ViT khoảng **415 triệu**, còn projector gồm `visual.merger` khoảng **27 triệu** và `visual.deepstack_merger_list` khoảng **82 triệu**. Đây là con số ước lượng trong tài liệu, chưa phải số đếm trực tiếp từ model của lần chạy này.
 
-E1 chỉ dùng LoRA ở các lớp attention và MLP của LLM; ViT và projector được đóng băng. E2 giống E1 nhưng mở projector để huấn luyện đầy đủ, tăng khoảng 109 triệu tham số được cập nhật. E3 giữ E2 và bổ sung LoRA ở các lớp attention/MLP của ViT. Em mới chạy E0 nên chưa đo được số tham số trainable thực tế của E1–E3.
+E1 chỉ dùng LoRA ở các lớp attention và MLP của LLM; ViT và projector được đóng băng. E2 giống E1 nhưng mở projector để huấn luyện đầy đủ, tăng khoảng 109 triệu tham số được cập nhật. E3 giữ E2 và bổ sung LoRA ở các lớp attention/MLP của ViT. Em mới chạy E0, E1 nên chưa đo được số tham số trainable thực tế của E2, E3.
 
 ### Câu 2 — E0: `parse_valid_rate` bằng bao nhiêu, và hai lỗi phổ biến nhất của model gốc là gì? Kèm output thô.
 
